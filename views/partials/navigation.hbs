@@ -57,25 +57,162 @@
                             <a href="/404" class="dropdown-item">404 Page</a>
                         </div>
                     </div>
+
+                    <div class="nav-item dropdown d-block">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">John</a>
+                        <div class="dropdown-menu m-0">
+                            <a href="/#" class="dropdown-item p-3 px-4"><i class="bi bi-person-fill pe-2"></i> Profile</a>
+                            <a href="/#" class="dropdown-item p-3 px-4"><i class="bi bi-clipboard-data-fill pe-2"></i> Dashboard (Admin)</a>
+                            <a href="/#" class="dropdown-item p-3 px-4"><i class="bi bi-ticket-detailed-fill pe-2"></i> Rewards</a>
+                            <a href="/#" class="dropdown-item p-3 px-4"><i class="bi bi-airplane-fill pe-2"></i> Travel Management</a>
+                            <a href="/#" class="dropdown-item p-3 px-4"><i class="bi bi-currency-dollar pe-2"></i> Budget Management</a>
+                            <a href="/#" class="dropdown-item p-3 px-4"><i class="bi bi-receipt pe-2"></i> Purchase History</a>
+                            <a href="/logout" class="dropdown-item p-3 px-4">Logout</a>
+                        </div>
+                    </div>
                     <a href="/contact" class="nav-item nav-link">Contact</a>
                 </div>
-                <a href="" class="btn btn-primary rounded-pill py-2 px-4">Register</a>
+                <a data-bs-toggle="modal" data-bs-target="#loginModel" class="btn btn-primary rounded-pill py-2 px-4">Login</a>
+                
             </div>
         </nav>
 
-        <div class="container-fluid bg-primary hero-header" style="padding-top: calc(100vh - 45rem) !important; padding-bottom: calc(100vh - 45rem) !important;">
-            <div class="container py-5">
-                <div class="row justify-content-center py-5">
-                    <div class="col-lg-10 pt-lg-5 mt-lg-5 text-center">
-                        <h1 class="display-3 text-white mb-3 animated slideInDown">Explore The Wonders Of Singapore With Us</h1>
-                        <p class="fs-4 text-white mb-4 animated slideInDown">Tempor erat elitr rebum at clita diam amet diam et eos erat ipsum lorem sit</p>
-                        <div class="position-relative w-75 mx-auto animated slideInDown">
-                            <input class="form-control border-0 rounded-pill w-100 py-3 ps-4 pe-5" type="text" placeholder="Eg: Universal Studios Singapore">
-                            <button type="button" class="btn btn-primary rounded-pill py-2 px-4 position-absolute top-0 end-0 me-2" style="margin-top: 7px;">Search</button>
+        <!-- Modal -->
+        <div class="modal fade" id="loginModel" tabindex="-1" aria-labelledby="loginModelLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content p-5">
+            <div class="modal-header border-0">
+                <h1 class="modal-title fs-5" id="loginModelLabel">Login</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body pt-5 pb-3">
+                <form action="/login" method="post">
+                    <div class="mb-3">
+                        <label for="usernameInput" class="form-label">Username/ Email</label>
+                        <input type="text" class="form-control py-3" id="usernameInput" placeholder="E.g Tom or name@example.com">
+                    </div>
+                    <div class="mb-3">
+                        <label for="inputPassword5" class="form-label">Password</label>
+                        <div class="input-group">
+                            <input type="password" id="inputPassword5" name="inputPassword5" class="form-control py-3 border-end-0" aria-describedby="passwordHelpBlock">
+                            <div class="input-group-append">
+                                <span class="input-group-text h-100 border-start-0 bg-white px-4">
+                                    <i class="fa fa-eye" id="togglePassword"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <div id="passwordHelpBlock" class="form-text text-danger mt-2">
+                            <i class="bi bi-exclamation-lg"></i> Incorrect Password or Username
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer border-0 justify-content-center">
+                <button type="submit" class="btn btn-secondary mb-3 px-5 py-3 w-100">Login</button>
+                <button type="submit" class="btn px-5 py-3 w-100 mb-3" style="background-color: #4285F4; color:white"><i class="bi bi-google pe-3"></i>Sign In With Google</button>
+                <p class="text-dark">Not signed up? <a class="text-green" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#signUpModel"> Register</a></p>
+            </div>
+
+            </div>
+        </div>
+        </div>
+
+        <!-- Sign Up Modal -->
+        <div class="modal fade" id="signUpModel" tabindex="-1" aria-labelledby="signupModelLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+            <div class="modal-content p-0 m-0">
+            <div class="modal-body p-0 m-0">
+                <div class="row signup_content">
+                    <div class="col-6">
+                        <img src="./img/singapore-06.jpg" class="" id="modalImage" style="object-fit: cover; width: 100%;" alt="">
+                    </div>
+                    <div class="col-6 bg-white">
+                        <div class="modal-header border-0 p-5">
+                            <h1 class="modal-title fs-3" id="loginModelLabel">Sign Up</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body px-5">
+                            <form action="/signup" method="post">
+                                <div class="mb-4">
+                                    <label class="form-label">Name</label>
+                                    <div class="input-group">
+                                    <input type="text" class="form-control py-3 " placeholder="First">
+                                    <input type="text" class="form-control py-3" placeholder="Last">
+                                    </div>
+                                    
+                                </div>
+                                <div class="mb-4 d-flex justify-content-between">
+                                    <div class="w-50">
+                                        <label for="genderInput" class="form-label">Gender</label>
+                                        <div class="w-100 pt-3" style="vertical-align: middle;">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="genderRadio" id="genderRadio1">
+                                                <label class="form-check-label" for="flexRadioDefault1">
+                                                    Male
+                                                </label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="genderRadio" id="genderRadio2">
+                                                <label class="form-check-label" for="flexRadioDefault2">
+                                                    Female
+                                                </label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="genderRadio" id="genderRadio3">
+                                                <label class="form-check-label" for="flexRadioDefault2">
+                                                    Others
+                                                </label>
+                                            </div>  
+                                        </div>
+                                    </div>
+                                    <div class="w-50">
+                                        <label for="DOBInput" class="form-label">Date of Birth</label>
+                                        <input type="date" class="form-control py-3" placeholder="01/01/1999">
+                                    </div>
+                                    
+
+                                </div>
+                                <div class="mb-4">
+                                    <label for="emailInput" class="form-label">Email</label>
+                                    <input type="email" class="form-control py-3 " id="emailInput" placeholder="name@example.com">
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <label for="signupPassword" class="form-label">Password</label>
+                                    <div class="input-group">
+                                        <input type="password" id="signupPassword" name="signupPassword" class="form-control py-3 border-end-0" aria-describedby="passwordHelpBlockSignup">
+                                        <div class="input-group-append">
+                                            <span class="input-group-text h-100 border-start-0 bg-white px-4">
+                                                <i class="fa fa-eye" id="togglePassword"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div id="passwordHelpBlockSignup" class="form-text mt-2">
+                                        Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
+                                    </div>
+                                </div>
+                                    <div class="mb-3">
+                                    <label for="signupPasswordConfirm" class="form-label">Confirm Password</label>
+                                    <div class="input-group">
+                                        <input type="password" id="signupPasswordConfirm" name="signupPasswordConfirm" class="form-control py-3 border-end-0" >
+                                        <div class="input-group-append">
+                                            <span class="input-group-text h-100 border-start-0 bg-white px-4">
+                                                <i class="fa fa-eye" id="togglePassword"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer px-5 pb-5 border-0 justify-content-center">
+                            <button type="submit" class="btn btn-secondary mb-3 px-5 py-3 w-100">Sign Up</button>
+                            <button type="submit" class="btn px-5 py-3 w-100 mb-3" style="background-color: #4285F4; color:white"><i class="bi bi-google pe-3"></i>Sign Up With Google</button>
+                            <p class="text-dark">Already have a account! <a class="text-green" style="cursor: pointer;" data-bs-dismiss="modal"> Login</a></p>
                         </div>
                     </div>
                 </div>
             </div>
+            </div>
         </div>
-    </div>
-    <!-- Navbar & Hero End -->
+        </div>
+    

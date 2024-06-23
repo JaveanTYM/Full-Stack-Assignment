@@ -11,3 +11,30 @@
 
     <!-- Template Javascript -->
     <script src="./js/main.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const togglePassword = document.querySelector("#togglePassword");
+            const password = document.querySelector("#inputPassword5");
+
+            togglePassword.addEventListener("click", function () {
+                // toggle the type attribute
+                const type = password.getAttribute("type") === "password" ? "text" : "password";
+                password.setAttribute("type", type);
+                // toggle the eye icon
+                this.classList.toggle('fa-eye');
+                this.classList.toggle('fa-eye-slash');
+            });
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const modalElement = document.getElementById('signUpModel');
+            const modalImage = document.getElementById('modalImage');
+
+            modalElement.addEventListener('shown.bs.modal', function () {
+                const modalHeight = modalElement.querySelector('.modal-content').offsetHeight;
+                modalImage.style.height = modalHeight + 'px';
+            });
+        });
+    </script>
+    </script>
